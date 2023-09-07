@@ -10,6 +10,7 @@ import { checkENV } from "./utils/environment.util";
 import { corsOptions } from "./config/cors.config";
 import { swaggerOptions } from "./config/swagger.config";
 import basePath from "./routes/base.route";
+import kbankPath from "./routes/kbank.route";
 
 dotenv.config();
 checkENV();
@@ -30,6 +31,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 });
 
 app.use("/", basePath);
+app.use("/kbank", kbankPath);
 
 if (process.env.NODE_ENV !== "production") {
   console.log("Swagger UI is running at /api-docs");
