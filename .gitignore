@@ -1,0 +1,11 @@
+# dependencies
+/node_modules
+
+# production
+/dist
+
+# environment
+.env
+
+# pnpm lockfile
+pnpm-lock.yaml
