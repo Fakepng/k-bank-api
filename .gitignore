@@ -9,3 +9,7 @@
 
 # pnpm lockfile
 pnpm-lock.yaml
+src/certs/ssl_private.key
+src/certs/ssl.crt
+src/certs/ssl.csr
+src/certs/ssl_public.key
