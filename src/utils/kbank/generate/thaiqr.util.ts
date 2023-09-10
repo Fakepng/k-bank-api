@@ -1,5 +1,8 @@
-import KBank from "../../config/kbank.config";
-import type { ThaiQRRequest, ThaiQRResponse } from "../../types/kbank/thaiqr.d";
+import KBank from "../../../config/kbank.config";
+import type {
+  ThaiQRRequest,
+  ThaiQRResponse,
+} from "../../../types/kbank/thaiqr";
 
 async function ThaiQR(request: ThaiQRRequest, access_token: string) {
   const BODY = JSON.stringify(request);
@@ -17,7 +20,7 @@ async function ThaiQR(request: ThaiQRRequest, access_token: string) {
     body: BODY,
   };
 
-  const response = await fetch(KBank.thaiQR, CONFIG);
+  const response = await fetch(KBank.GENERATE_THAI_QR_CODE, CONFIG);
 
   const data = (await response.json()) as ThaiQRResponse;
 

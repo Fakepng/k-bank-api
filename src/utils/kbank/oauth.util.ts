@@ -24,7 +24,7 @@ async function Oauth() {
     body: BODY,
   };
 
-  const response = await fetch(KBank.oauth, CONFIG);
+  const response = await fetch(KBank.OAUTH, CONFIG);
 
   const data = (await response.json()) as OauthResponse;
 

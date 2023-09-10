@@ -1,13 +1,7 @@
 import type { Request, Response } from "express";
+import httpCode from "../../../constants/http.code.constant";
 
-import { Oauth } from "../utils/kbank/oauth.util";
-import { ThaiQR } from "../utils/kbank/thaiqr.util";
-
-async function oauth(req: Request, res: Response) {
-  const data = await Oauth();
-
-  return res.status(200).json({ status: 200, error: false, message: data });
-}
+import { ThaiQR } from "../../../utils/kbank/generate/thaiqr.util";
 
 async function thaiqr(req: Request, res: Response) {
   const access_token = req.body.access_token;
@@ -29,7 +23,9 @@ async function thaiqr(req: Request, res: Response) {
 
   const data = await ThaiQR(request, access_token);
 
-  return res.status(200).json({ status: 200, error: false, message: data });
+  return res
+    .status(httpCode.OK)
+    .json({ status: httpCode.OK, error: false, message: data });
 }
 
-export { oauth, thaiqr };
+export { thaiqr };
